@@ -1,0 +1,48 @@
+.title{
+	color:white;
+	text-align: center;
+}
+
+body{
+	background: url(../images/background.jpg);
+}
+
+.list_and_table{
+	color:white;
+}
+
+.gallery{
+	background-image: url(../images/texture.jpg);
+	background-repeat: repeat;
+	text-align: center;
+	color:white;
+}
+
+#img_in_table {
+	height:41.5vh;
+	width:32.5vw;
+}
+
+.book{
+	background-image: url(../images/book_bg.jpg);
+}
+
+.menu{
+  text-align: center;
+	list-style-type:none;
+	padding-left:0;
+	margin-left:0;
+}
+
+.menu a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: #5757a0;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: lavender;
+  border-bottom: 5px solid #5757a0;
+}
+.menu li {
+	display:inline;
+}

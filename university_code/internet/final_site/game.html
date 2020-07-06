@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <head lang = "en">
+ <meta charset = "utf-8">
+	<title>Game</title>
+	<link rel="stylesheet" href="css/game.css">
+ 		<link rel="stylesheet" href="css/styles.css">
+  <script src="js/history.js"></script>
+ </head>
+ <body>
+   <ul class="menu">
+   <li><input type="button" value="&#128072;" onClick="back_to_history()"></li>
+   <li><a href="main_page.html">&#128640; Home</a></li>
+   <li><a href="gallery.html">&#127912; Gallery</a></li>
+   <li><a href="book/page_1.html">&#128218; Book</a></li>
+   <li><a href="game.html">&#127918; Game</a></li>
+   <li><a href="feedback_form.php">&#x1f4e7; Feedback</a></li>
+   <li><a href="planets.php">&#127757; Planets</a></li>
+   <li><a href="astronauts.php">👨‍🚀 Astronauts</a></li>
+   </ul>
+   <script type="text/javascript">
+     document.addEventListener("mousemove", function(e){
+       var body = document.querySelector("body");
+       var rockets = document.createElement("span");
+       var x = e.offsetX;
+       var y = e.offsetY;
+       rockets.style.left = x + 'px';
+       rockets.style.top = y + 'px';
+       var size = Math.random();
+       rockets.style.width = size*100 + 'px';
+       rockets.style.height = size*100 + 'px';
+       body.appendChild(rockets);
+
+       setTimeout(function(){
+         rockets.remove();
+       }, 5000)
+     })
+   </script>
+ </body>
