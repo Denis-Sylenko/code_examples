@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Path.qml</file>
+        <file>Grid.qml</file>
+        <file>List.qml</file>
+    </qresource>
+</RCC>

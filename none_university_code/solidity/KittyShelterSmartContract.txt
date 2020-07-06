@@ -1,0 +1,25 @@
+contract KittyShelter {
+    KittenRegistry _registry =KittenRegistry(0xf59459AE845116c5b0d5401E656073d0BfDCec73);
+    
+    mapping(uint256 => uint256) private _CatsTime;
+    
+    function storeKitty(uint256 catId, uint256 time) public {
+        address _owner =_registry.ownerOf(catId);
+        require(_owner == msg.sender); //Проверяем, является ли вызвавгий функцию владельцем кота. Кроме того, require внутри функции ownerOf проверит существование самого кота
+         address _shelter = address(this);
+        _registry.transferFrom(_owner, _shelter, catId);//Передаем кота приюту 
+        _registry.approve(_owner, catId);//В доверенных лицах указываем хозяина
+        _CatsTime[catId] = now + (time * 1 seconds); //Добавляем кота в приют на указанное кол-вл секунд
+    }
+    
+    function retrieveKitty(uint256 catId) public {
+         address _owner =_registry.getApproved(catId);
+          require(_owner == msg.sender);//Проверяем, вызывает ли функцию доверенное лицо (хозяин). Кроме того, require внутри функции getApproved проверит существование самого кота
+         require(now > _CatsTime[catId], "Not yet");//Проверяем, вышел ли срок хранения данного кота
+         address _shelter = address(this);
+         _registry.transferFrom(_shelter, _owner, catId);//Передаем кота хозяину
+         delete(_CatsTime[catId]);//Удаляем записи о коте
+    }
+    
+    
+}
